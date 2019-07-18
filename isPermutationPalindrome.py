@@ -40,7 +40,7 @@ def isPermutationPalindrome_v2(s):
 def isPermutationPalindrome_v3(s):
     bitMap = 0
     max_char = ord('z')
-    min_char = ord('a')  #Assuming s only contains 'z' to 'z' in ASCII, not unicode
+    min_char = ord('a')  #Assuming s only contains 'z' to 'z' in ASCII, not Unicode
 
     for c in s:
         val_char = ord(c)
