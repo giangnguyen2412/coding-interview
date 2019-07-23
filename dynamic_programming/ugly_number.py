@@ -199,13 +199,13 @@ print('Eslaped Time: ', stop - start)
 start = timeit.default_timer()
 
 n = 70
-print(uglyNumber_dp(n))
+print(uglyNumber_memoize(n))
 #n = 1000   
-#print(uglyNumber_dp(n))
+#print(uglyNumber_memoize(n))
 #n = 1500   
-#print(uglyNumber_dp(n))
+#print(uglyNumber_memoize(n))
 #n = 15000   
-#print(uglyNumber_dp(n))
+#print(uglyNumber_memoize(n))
 
 stop = timeit.default_timer()
 
