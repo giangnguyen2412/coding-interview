@@ -76,7 +76,7 @@ print("70th ugly no. is ", no)
 
 stop = timeit.default_timer()
 
-print('Eslaped Time Sol2: ', stop - start)
+#print('Eslaped Time Sol2: ', stop - start)
 
 
 # Python3 code to find nth ugly number 
@@ -116,7 +116,7 @@ print("70th ugly no. is ", no)
 
 stop = timeit.default_timer()
 
-print('Eslaped Time Sol1: ', stop - start)
+#print('Eslaped Time Sol1: ', stop - start)
 
 # This code is contributed by "Sharad_Bhardwaj". 
 
@@ -149,7 +149,6 @@ def uglyNumber(n):
 
 def checkUglyNumber_memoize(n, cache):
     if (n in cache):
-        print('hit')
         return cache[n]
 
     if (n%2 and n%3 and n%5):
@@ -159,11 +158,11 @@ def checkUglyNumber_memoize(n, cache):
     sqrt_n = int(math.sqrt(n))
     for i in range(1, sqrt_n + 1):
         if (n%2 == 0):
-            return checkUglyNumber(n/2)
+            return checkUglyNumber_memoize(n/2, cache)
         elif (n%3 == 0):
-            return checkUglyNumber(n/3)
+            return checkUglyNumber_memoize(n/3, cache)
         elif (n%5 == 0):
-            return checkUglyNumber(n/5)
+            return checkUglyNumber_memoize(n/5, cache)
 
     return True
 
@@ -172,7 +171,7 @@ def uglyNumber_memoize(n, cache = {}):
     ugly_num = 1
     while(1):
         i += 1
-        if True == checkUglyNumber_dp(i, cache):
+        if True == checkUglyNumber_memoize(i, cache):
             ugly_num += 1
             cache[i] = True
         else:
@@ -183,7 +182,7 @@ def uglyNumber_memoize(n, cache = {}):
 
 start = timeit.default_timer()
 
-n = 70
+n = 700
 print(uglyNumber(n))
 #n = 1000   
 #print(uglyNumber(n))
@@ -198,7 +197,7 @@ print('Eslaped Time: ', stop - start)
 
 start = timeit.default_timer()
 
-n = 70
+n = 700
 print(uglyNumber_memoize(n))
 #n = 1000   
 #print(uglyNumber_memoize(n))
@@ -209,7 +208,7 @@ print(uglyNumber_memoize(n))
 
 stop = timeit.default_timer()
 
-print('Eslaped Time for DP: ', stop - start)
+print('Eslaped Time for memoize: ', stop - start)
 
 
 start = timeit.default_timer()
