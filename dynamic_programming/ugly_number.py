@@ -147,7 +147,7 @@ def uglyNumber(n):
         if (ugly_num == n):
             return i
 
-def checkUglyNumber_dp(n, cache):
+def checkUglyNumber_memoize(n, cache):
     if (n in cache):
         print('hit')
         return cache[n]
@@ -167,7 +167,7 @@ def checkUglyNumber_dp(n, cache):
 
     return True
 
-def uglyNumber_dp(n, cache = {}):
+def uglyNumber_memoize(n, cache = {}):
     i = 1
     ugly_num = 1
     while(1):
