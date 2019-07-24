@@ -61,6 +61,62 @@ def lis(arr):
     return max(lis), dct
 
 
+def lis_recursive(arr):
+    ret = 1 # default return value 
+    arr_len = len(arr)
+    if (arr_len <= 1):
+        return arr_len
+
+    index1 = arr_len - 1
+    while (index1 > 0):
+        index2 = index1 - 1
+        while (index2 >= 0):
+            if (arr[index1] > arr[index2]):
+                return 1 + lis_recursive(arr[:index2 + 1])
+            
+            index2 -= 1
+        index1 -= 1
+    return ret
+
+def lis_recursive_memoize(arr, dct={}):
+    ret = 1 # default return value 
+    arr_len = len(arr)
+    if (arr_len <= 1):
+        return arr_len
+
+    index1 = arr_len - 1
+    while (index1 > 0):
+        if index1 in dct:
+            return dct[index1]
+        index2 = index1 - 1
+        while (index2 >= 0):
+            if (arr[index1] > arr[index2]):
+                lis_cnt = 1 + lis_recursive_memoize(arr[:index2 + 1], dct)
+                dct[index1] = lis_cnt
+                return lis_cnt
+            
+            index2 -= 1
+        index1 -= 1
+    return ret
+
+
+start = timeit.default_timer()
+arr = [2, 3, 1, 4, 6]
+arr = [10 , 22 , 9 , 33 , 21 , 50 , 41 , 60]
+arr = [3, 10, 2, 1, 20]
+arr = [3, 2]
+arr = [9, 8, 6, 5, 5, 3, 2, 1, 1, 0]
+arr = [50, 3, 10, 7, 40, 80, 90, 91, 92, 93, 94, 95, 96, 97, 1000]
+print(lis_recursive(arr))
+stop = timeit.default_timer()
+print('Elapsed time recursion: {}'.format(stop - start))
+
+start = timeit.default_timer()
+print(lis_recursive_memoize(arr))
+stop = timeit.default_timer()
+print('Elapsed time recursion memoize: {}'.format(stop - start))
+
+'''
 start = timeit.default_timer()
 #arr = [3, 10, 2, 1, 20]
 #arr = [50,3,10,7,40,80]
@@ -99,4 +155,4 @@ arr = [3,10,2,1,20]
 arr = [3,2]
 #arr = [50,3,10,7,40,80]
 #print(lis(arr))
-
+'''
