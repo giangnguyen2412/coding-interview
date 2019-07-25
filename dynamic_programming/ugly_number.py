@@ -16,13 +16,13 @@ def uglyNumber_tabulation(n):
 		ugly_list[i] = min(ugly_2, ugly_3, ugly_5)
 		
 		if (ugly_list[i] == ugly_2):
-			ugly_2 = ugly_2*ugly_list[ugly_2_cnt]
+			ugly_2 = 2*ugly_list[ugly_2_cnt]
 			ugly_2_cnt +=1 
 		elif (ugly_list[i] == ugly_3):
-			ugly_3 = ugly_3*ugly_list[ugly_3_cnt]
+			ugly_3 = 3*ugly_list[ugly_3_cnt]
 			ugly_3_cnt += 1
 		else:
-			ugly_5 = ugly_5*ugly_list[ugly_5_cnt]
+			ugly_5 = 5*ugly_list[ugly_5_cnt]
 			ugly_5_cnt += 1
 			
 	return ugly_list[-1]
