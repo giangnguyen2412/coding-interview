@@ -104,6 +104,15 @@ stop = timeit.default_timer()
 
 #print('Eslaped Time Sol2: ', stop - start)
 
+start = timeit.default_timer()
+# Driver code to test above functions 
+no = uglyNumber_tabulation(70) 
+print("70th TABULATION ugly no. is ", no) 
+
+stop = timeit.default_timer()
+
+#print('Eslaped Time Sol2: ', stop - start)
+
 
 # Python3 code to find nth ugly number 
 
