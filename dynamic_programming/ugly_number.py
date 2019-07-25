@@ -208,7 +208,7 @@ def uglyNumber_memoize(n, cache = {}):
 
 start = timeit.default_timer()
 
-n = 700
+n = 70
 print(uglyNumber(n))
 #n = 1000   
 #print(uglyNumber(n))
@@ -223,7 +223,7 @@ print('Eslaped Time: ', stop - start)
 
 start = timeit.default_timer()
 
-n = 700
+n = 70
 print(uglyNumber_memoize(n))
 #n = 1000   
 #print(uglyNumber_memoize(n))
