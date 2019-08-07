@@ -19,6 +19,7 @@ def shortestCommonSuperSequence(str1, str2):
         else:
             return shortestCommonSuperSequence(str1, str2[:-1]) + str2[-1]
 
+# Anyway. we can use memoization here to optimize the time complexity but increasing space compexity, its trivial so I will leave it!
 str1 = "geek"
 str2 = "eke"
 
